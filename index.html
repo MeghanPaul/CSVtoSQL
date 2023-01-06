@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    
+</head>
+<body>
+    <h1>CSV to SQL List</h1>
+    <textarea id="input"></textarea>
+<button onClick="addSingleQuotes()">Convert</button>
+    <textarea id="output"></textarea>
+<button></button>
+</body>
+<script>
+function addSingleQuotes(){
+    var text = document.getElementById('input').value;
+    console.log(text);
+    var result ="";
+    for(var i =0;i < text.length; i++){
+        if(text[i]==','){
+            result += "'"+text[i]+"'";
+        }else{
+            result+=text[i];
+        }
+    }
+    result ="'"+result+"'";
+    document.getElementById('output').value = result;
+    navigator.clipboard.writeText(result);
+}
+    </script>
+</html>
